@@ -1,0 +1,34 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPages_MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="../App_Themes/MainTheme/StyleSheet.css" rel="stylesheet" type="text/css" />
+    <%--<script src="../Scripts/itemViewer.js"></script>--%>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <header>
+                <img src="../App_Themes/MainTheme/Untitled.png" />
+            </header>
+        </div>
+        <div class="wrapper">
+
+        
+            <asp:ContentPlaceHolder ID="cpMain" runat="server">
+            </asp:ContentPlaceHolder>
+            <div class="push"></div>
+            </div>
+        <hr />
+        <div class="footer">
+            <p>&copy; 2017 - Yehuda Ornstein</p>
+            <p><a href="../contactus.aspx">Contact Us</a></p>
+        </div>
+    </form>
+</body>
+</html>
