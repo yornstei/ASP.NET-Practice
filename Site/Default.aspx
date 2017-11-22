@@ -10,7 +10,7 @@
     </p>
 
     <p class="introduction">
-        Feel free to have a <a href="Default.aspx">look around</a>; there are lots of interesting <strong>reviews and concert pictures</strong> to be found here.
+        Feel free to have a <a href="Default">look around</a>; there are lots of interesting <strong>reviews and concert pictures</strong> to be found here.
     </p>
 </asp:Content>
 
