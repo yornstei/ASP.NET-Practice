@@ -19,7 +19,24 @@
     }
 </style>
 
-<table style="width:100%;">
+<script>
+function validatePhoneNumbers(source, args)
+{
+    var phoneHome = document.getElementById('<%= PhoneHome.ClientID %>');
+    var phoneBusiness = document.getElementById('<%= PhoneBusiness.ClientID %>');
+
+    if (phoneHome.value != '' || phoneBusiness.value != '')
+    {
+        args.IsValid = true;
+    }
+    else
+    {
+        args.IsValid = false;
+    }
+}
+</script>
+
+<table style="width:100%;" runat="server" id="FormTable">
     <tr>
         <td colspan="3">Just Enter Some Info Here For Contacting Us We Really Like It.</td>
     </tr>
@@ -57,7 +74,9 @@
         <td class="auto-style2">
             <asp:TextBox ID="PhoneHome" runat="server"></asp:TextBox>
         </td>
-        <td>&nbsp;</td>
+        <td>
+            <asp:CustomValidator ID="CustomValidator1" runat="server" ClientValidationFunction="validatePhoneNumbers" CssClass="ErrorMessage" Display="Dynamic" ErrorMessage="Enter your home or business phone number" OnServerValidate="CustomValidator1_ServerValidate">*</asp:CustomValidator>
+        </td>
     </tr>
     <tr>
         <td class="auto-style1">Business phone number</td>
@@ -78,9 +97,15 @@
     <tr>
         <td class="auto-style1">&nbsp;</td>
         <td class="auto-style2">
-            <asp:Button ID="SendButton" runat="server" Text="Send" />
+            <asp:Button ID="SendButton" runat="server" Text="Send" OnClick="SendButton_Click" />
         </td>
         <td>&nbsp;</td>
     </tr>
+    <tr>
+        <td colspan="3">
+            <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="ErrorMessage" HeaderText="Please correct the following errors:" ShowMessageBox="True" ShowSummary="False" />
+        </td>
+    </tr>
 </table>
+<asp:Label ID="Message" runat="server" Text="Message Sent" Visible="false" />
 
